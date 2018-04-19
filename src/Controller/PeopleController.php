@@ -22,8 +22,11 @@ class PeopleController extends Controller
     }
 
     /**
-     * @Route("/validate/{element}", name="validatePerson")
+     * @Route("/validate/{element}", name="validateAll")
      * @Method({"POST"})
+     * @param Request $request
+     * @param $element
+     * @return JsonResponse
      */
     public function validate(Request $request, $element)
     {
@@ -34,9 +37,14 @@ class PeopleController extends Controller
         }
 
         $students = $this->getStudents();
+        $teams= $this->getTeams();
+
         switch ($element) {
             case 'name':
                 return new JsonResponse(['valid' => in_array(strtolower($input), $students)]);
+
+            case 'team':
+                return new JsonResponse(['valid' => in_array(strtolower($input), $teams)]);
         }
 
         return new JsonResponse(['error' => 'Invalid method'], Response::HTTP_BAD_REQUEST);
@@ -45,7 +53,7 @@ class PeopleController extends Controller
     private function getStorage()
     {
         return /** @lang json */
-        '{
+            '{
           "Po pamok\u0173": {
             "mentor": "Tomas",
             "members": [
@@ -102,5 +110,14 @@ class PeopleController extends Controller
         }
         return $students;
     }
-}
 
+    private function getTeams() {
+        $teams = [];
+        $storage = json_decode($this->getStorage(), true);
+        foreach ($storage as $team => $dreamTeam) {
+            $teams[] = strtolower($team);
+        }
+        return $teams;
+    }
+
+}

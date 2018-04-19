@@ -3,13 +3,16 @@
 {% block title %}Hello {{ controller_name }}!{% endblock %}
 
 {% block body %}
-<div id="root">Loading...</div>
-<div>
-    Versija <b id="version">...</b>
-</div>
+    <div id="root">Loading...</div>
+    <div>
+        Versija <b id="version">...</b>
+    </div>
 
     <input type="text" id="name"/>
-    <span id="validation-result" data-path="{{ path('validatePerson', {'element': 'name'}) }}"></span>
+    <span id="validation-result-name" data-path="{{ path('validateAll', {'element': 'name'}) }}"></span>
+    <br>
+    <input type="text" id="team"/>
+    <span id="validation-result-team" data-path="{{ path('validateAll', {'element': 'team'}) }}"></span>
 {% endblock %}
 
 {% block javascripts %}
@@ -17,6 +20,6 @@
         var needVersion = true;
         var needReact = true;
     </script>
-    <script src="{{ asset('build/js/validation.js') }}"></script>
+    <script src="{{ asset('build/js/app.js') }}"></script>
     {{ parent() }}
 {% endblock %}
