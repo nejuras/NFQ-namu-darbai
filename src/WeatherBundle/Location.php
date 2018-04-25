@@ -7,12 +7,12 @@ class Location
     /**
      * @var float
      */
-    private $lat;
+    public $lat;
 
     /**
      * @var float
      */
-    private $lon;
+    public $lon;
 
     public function __construct(float $lat, float $lon)
     {

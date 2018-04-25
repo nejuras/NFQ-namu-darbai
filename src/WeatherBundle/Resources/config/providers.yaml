@@ -4,4 +4,12 @@ services:
 
     nfq_weather.provider.openweathermap:
         class: Nfq\WeatherBundle\OpenWeatherMapWeatherProvider
-        arguments: ['']
+        arguments: ["@=container.hasParameter('nfq_weather.provider.openweathermap') ? parameter('45') : 456"]
+
+    nfq_weather.provider.yahoo:
+            class: Nfq\WeatherBundle\YahooWeatherProvider
+            arguments: ["@=container.hasParameter('nfq_weather.provider.openweathermap') ? parameter('45') : 456"]
+
+    nfq_weather.provider.delegating:
+                class: Nfq\WeatherBundle\DelegatingWeatherProvider
+                arguments: ["@=container.hasParameter('nfq_weather.provider.openweathermap') ? parameter('45') : 456"]
