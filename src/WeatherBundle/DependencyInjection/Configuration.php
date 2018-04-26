@@ -24,7 +24,10 @@ class Configuration implements ConfigurationInterface
                         ->children()
                             ->arrayNode('openweathermap')
                                 ->children()
-                                    ->scalarNode('api_key')->end()
+                                    ->scalarNode('api_key')
+                                        ->isRequired()
+                                        ->cannotBeEmpty()
+                                    ->end()
                                 ->end()
                             ->end() //openweathermap
                             ->arrayNode('delegating')
@@ -42,7 +45,6 @@ class Configuration implements ConfigurationInterface
 
             ->end()
             ;
-//var_dump($rootNode);
         return $treeBuilder;
     }
 }

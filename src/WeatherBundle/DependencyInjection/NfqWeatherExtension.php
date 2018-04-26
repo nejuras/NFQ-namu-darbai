@@ -14,22 +14,33 @@ class NfqWeatherExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-//var_dump($config);
+//var_dump($config['providers']['delegating']['providers']);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         $loader->load('providers.yaml');
+        //var_dump($loader);
 
         $container->setAlias(WeatherProviderInterface::class, 'nfq_weather.provider.openweathermap');
 
-
-       // $container->setParameter('nfq_weather.provider.api_key', $config['providers']['openweathermap']['api_key']);
-        var_dump($container);
+        $container->setParameter('providers.openweathermap.api_key', '1000');
+       // $container->getDefinition('nfq_weather.provider.openweathermap')->setArgument('0', 'providers.openweathermap.api_key');
+        //var_dump($container);
 
         if (isset($config['providers']['openweathermap']['api_key'])) {
             $container->getDefinition('nfq_weather.provider.openweathermap')
                 ->replaceArgument(0, $config['providers']['openweathermap']['api_key']);
-            //var_dump($config);
+
         }
+        /*$delegatingProviders =  $config['providers']['delegating']['providers'];
+        foreach ($delegatingProviders as $delegatingProvider) {
+            var_dump($delegatingProvider);
+        }
+
+        if (isset($config['providers']['delegating']['providers'])) {
+            $container->getDefinition('nfq_weather.provider.delegating')
+                ->replaceArgument(0, $config['providers']['delegating']['providers']['yahoo']);
+
+        }*/
 
     }
 }
