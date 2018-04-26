@@ -20,7 +20,7 @@ class WeatherController extends Controller
     public function __construct(WeatherProviderInterface $provider)
     {
         $this->provider = $provider;
-        var_dump($provider);
+        //var_dump($provider);
     }
 
     public function index(): Response
