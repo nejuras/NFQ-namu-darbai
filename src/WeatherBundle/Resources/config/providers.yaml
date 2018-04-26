@@ -3,14 +3,13 @@ services:
         public: true
 
     nfq_weather.provider.openweathermap:
-        class: Nfq\WeatherBundle\OpenWeatherMapWeatherProvider
-       # arguments: ["@=container.hasParameter('providers.openweathermap.api_key') ? parameter('providers.openweathermap.api_key') : 0"]
-        arguments: ["%providers.openweathermap.api_key%"]
+                class: Nfq\WeatherBundle\OpenWeatherMapWeatherProvider
+                arguments: ["%providers.openweathermap.apikey%"]
 
     nfq_weather.provider.yahoo:
-            class: Nfq\WeatherBundle\YahooWeatherProvider
-            arguments: ["@=container.hasParameter('nfq_weather.provider.yahoo') ? parameter('nfq_weather.provider.yahoo') : 0"]
+            class: Nfq\WeatherBundle\YahoopWeatherProvider
+            arguments: ["%nfq_weather.provider.yahoo%"]
 
-   # nfq_weather.provider.delegating:
-    #            class: Nfq\WeatherBundle\DelegatingWeatherProvider
-     #           arguments: ["%nfq_weather.delegating%", "%providers.openweathermap.api_key%"]
+    nfq_weather.provider.delegating:
+                class: Nfq\WeatherBundle\DelegatingWeatherProvider
+                arguments: ["%nfq_weather.provider.delegating%"]

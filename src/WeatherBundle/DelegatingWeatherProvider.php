@@ -2,13 +2,13 @@
 
 namespace Nfq\WeatherBundle;
 
-class DelegateWeatherProvider
+class DelegatingWeatherProvider
 {
     public $providers;
     public function __construct(array $providers)
     {
         $this->providers = $providers;
-        var_dump($providers);
+        //var_dump($this->providers);
     }
     /**
      * @param Location $location
@@ -16,13 +16,14 @@ class DelegateWeatherProvider
      * @throws WeatherProviderException
      */
     public function fetch(Location $location) : Weather {
+
         foreach ($this->providers as $provider) {
             try {
                 return $provider->fetch($location);
             } catch (WeatherProviderException $e) {
             }
         }
-        throw new WeatherProviderException('nera oro duomenu sioje teritorijoje');
+        throw new WeatherProviderException('No Weather Provider!');
     }
 }
 
