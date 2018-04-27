@@ -30,6 +30,7 @@ class WeatherController extends Controller
     {
         $location = new Location(54.6872, 25.2797);
         $weather = $this->provider->fetch($location);
+
         return $this->render('home/index.html.twig', [
             'current_temperature' => $weather->getTemperature(),
         ]);

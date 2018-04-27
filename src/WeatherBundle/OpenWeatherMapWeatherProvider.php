@@ -22,7 +22,7 @@ class OpenWeatherMapWeatherProvider implements WeatherProviderInterface
         $data = json_decode($json, true);
 
         if ( ( json_last_error() ) || ( !$this->apiKey ) ) {
-            throw new WeatherProviderException('error');
+            throw new WeatherProviderException('No OpenWeatherMap Weather Provider');
         }
         $temperature = $data['main']['temp'];
         return new Weather($temperature);

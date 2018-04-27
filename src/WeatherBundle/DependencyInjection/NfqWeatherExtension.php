@@ -15,7 +15,7 @@ class NfqWeatherExtension extends Extension
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
-        var_dump($config['providers']);
+        //var_dump($config['providers']);
 
         $loader = new YamlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
         try {

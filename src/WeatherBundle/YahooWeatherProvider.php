@@ -18,11 +18,9 @@ class YahooWeatherProvider implements WeatherProviderInterface
         $data = json_decode($url_into_string);
 
         if (json_last_error()) {
-            throw new WeatherProviderException('klaida');
+            throw new WeatherProviderException('No Yahoo Weather Provider');
         }
         $temperature = $data->query->results->channel->item->condition->temp;
-        //$temperature_type = $data->query->results->channel->units->temperature;
-        //$provider_name = $data->query->results->channel->title;
         return new Weather( $temperature);
     }
 }

@@ -4,7 +4,7 @@ namespace Nfq\WeatherBundle;
 
 class DelegatingWeatherProvider
 {
-    public $providers;
+    public $providers = array();
     public function __construct(array $providers)
     {
         $this->providers = $providers;
@@ -23,8 +23,6 @@ class DelegatingWeatherProvider
             } catch (WeatherProviderException $e) {
             }
         }
-        throw new WeatherProviderException('No Weather Provider!');
+        throw new WeatherProviderException('No Delegating Weather Provider!');
     }
 }
-
-
