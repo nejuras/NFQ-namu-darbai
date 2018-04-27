@@ -12,7 +12,11 @@ set_time_limit(0);
 require __DIR__.'/../vendor/autoload.php';
 
 if (!class_exists(Application::class)) {
+<<<<<<< HEAD
     throw new \RuntimeException('You need to add "symfony/framework-bundles" as a Composer dependency.');
+=======
+    throw new \RuntimeException('You need to add "symfony/framework-bundle" as a Composer dependency.');
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e
 }
 
 if (!isset($_SERVER['APP_ENV'])) {

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //add bootstrap
 require('bootstrap');
 
@@ -8,3 +9,6 @@ imagesContext.keys().forEach(imagesContext);
 //enable Jquery
 const $ = require('jquery');
 global.$ = global.jQuery = $;
+=======
+require('bootstrap');
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e

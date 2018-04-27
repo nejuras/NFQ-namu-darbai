@@ -10,7 +10,11 @@
     "license": "UNLICENSED",
     "private": true,
     "scripts": {
+<<<<<<< HEAD
         "dev-server": "encore dev-server --host symfony.local --port 9500",
+=======
+        "dev-server": "encore dev-server",
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e
         "dev": "encore dev",
         "watch": "encore dev --watch",
         "build": "encore production"

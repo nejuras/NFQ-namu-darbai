@@ -18,7 +18,11 @@ Encore
     .enableSassLoader()
 
     // uncomment for legacy applications that require $/jQuery as a global variable
+<<<<<<< HEAD
     .autoProvidejQuery()
+=======
+    // .autoProvidejQuery()
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e
 ;
 
 module.exports = Encore.getWebpackConfig();

@@ -29,5 +29,13 @@ framework:
         # APCu (not recommended with heavy random-write workloads as memory fragmentation can cause perf issues)
         #app: cache.adapter.apcu
 
+<<<<<<< HEAD
+=======
+    # https://github.com/FriendsOfSymfony/FOSUserBundle/issues/2679
+    templating:
+        engines:
+            twig
+
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e
     assets:
         json_manifest_path: '%kernel.project_dir%/public/build/manifest.json'

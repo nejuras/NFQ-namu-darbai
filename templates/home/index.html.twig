@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block title %}Homepage - {{ parent() }}{% endblock %}
+<<<<<<< HEAD
 {% block stylesheets %}
   <link href="https://fonts.googleapis.com/css?family=Lato:100" rel="stylesheet" type="text/css">
   <link href="https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet" type="text/css">
@@ -77,3 +78,19 @@
   </div>
 {% endblock %}
 
+=======
+
+{% block body %}
+    <div class="title">NFQ Akademija</div>
+    <div class="jumbotron">
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_security_login') }}">Login</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_registration_register') }}">Register</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_profile_show') }}">User profile</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_profile_edit') }}">Edit user profile</a>
+        <a class="btn btn-secondary btn-lg" href="{{ path('fos_user_change_password') }}">Change password</a>
+    </div>
+    <div class="jumbotron">
+        <a class="btn btn-info btn-lg" href="{{ path('admin') }}">Our controller</a>
+    </div>
+{% endblock %}
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e

@@ -24,5 +24,14 @@ services:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
 
+<<<<<<< HEAD
+=======
+    my.registration.redirect.subscrubier:
+      class: App\EventSubscriber\RegistrationRedirectSubscriber
+      autowire: true
+      tags:
+        - { name: kernel.event_subscriber }
+
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones

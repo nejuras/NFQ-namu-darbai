@@ -39,6 +39,7 @@ services:
     ports:
       - 127.0.0.1:3307:3306 # Connect to it via -h127.0.0.1 --port=3307
 
+<<<<<<< HEAD
   phpmyadmin:
       container_name: phpmyadmin.symfony
       image: phpmyadmin/phpmyadmin:latest
@@ -50,12 +51,18 @@ services:
         - MYSQL_USERNAME=$MYSQL_USERNAME
         - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
 
+=======
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e
   frontend.symfony:
     build: .docker/frontend/
     container_name: frontend.symfony
     volumes:
+<<<<<<< HEAD
       - .:/code # Mount your code, so javaScript tools could see it
     ports:
       - "127.0.0.1:9500:9500"
     extra_hosts:
      - "symfony.local:0.0.0.0"
+=======
+      - .:/code # Mount your code, so javaScript tools could see it
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e

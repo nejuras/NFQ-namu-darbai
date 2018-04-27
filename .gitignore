@@ -38,4 +38,7 @@ npm-debug.log
 /project.tar.gz
 /.deploy/*.retry
 ###< Old symfony and common infrastructure ###
+<<<<<<< HEAD
 .idea/
+=======
+>>>>>>> ae8e1fe3e579e755550ab824e5168e9a4818b43e
