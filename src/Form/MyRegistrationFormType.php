@@ -10,17 +10,23 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class MyRegistrationFormType extends AbstractType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array $options
+     */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('website', UrlType::class)
+            ->add('linkedin', UrlType::class)
         ;
     }
 
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'website' => ''
+            'website' => '',
+            'linkedin' => ''
         ]);
     }
 

@@ -23,6 +23,11 @@ class User extends BaseUser
      */
     private $website;
 
+    /**
+     * @ORM\Column(type="string")
+     */
+    private $linkedin;
+
     public function getId()
     {
         return $this->id;
@@ -42,5 +47,18 @@ class User extends BaseUser
     public function setWebsite($website): void
     {
         $this->website = $website;
+    }
+
+    public function getLinkedin()
+    {
+        return $this->linkedin;
+    }
+
+    /**
+     * @param mixed $linkedin
+     */
+    public function setLinkedin($linkedin): void
+    {
+        $this->linkedin = $linkedin;
     }
 }
