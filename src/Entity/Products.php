@@ -27,7 +27,8 @@ class Products
     private $price;
 
     /**
-     * @ORM\Column(type="integer")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Categories", inversedBy="products", cascade={"persist"})
+     * @ORM\JoinColumn(nullable=false)
      */
     private $category_id;
 
@@ -65,12 +66,12 @@ class Products
         return $this;
     }
 
-    public function getCategoryId(): ?int
+    public function getCategoryId(): ?Categories
     {
         return $this->category_id;
     }
 
-    public function setCategoryId(int $category_id): self
+    public function setCategoryId(?Categories $category_id): self
     {
         $this->category_id = $category_id;
 
