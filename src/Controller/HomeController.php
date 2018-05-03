@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\Mapping\PostRemove;
+use http\Env\Request;
 use Symfony\Component\Routing\Annotation\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -21,9 +23,9 @@ class HomeController extends Controller
             $category->setTitle('bus');
 
             $product = new Products();
-            $product->setTitle('wheel');
+            $product->setTitle('window');
             $product->setPrice(20.50);
-            $product->setActive(0);
+            $product->setActive(1);
 
             $product->setCategoryId($category);
 
@@ -32,11 +34,13 @@ class HomeController extends Controller
             $entityManager->persist($product);
             $entityManager->flush();
 
-            return new Response('Product id '.$product->getId().'Category_id '.$category->getId());
+            return new Response('Product id '.$product->getId().'Category id '.$category->getId());
         }
 
     /**
      * @Route("/product/delete/{id}", name="delete")
+     * @param $id
+     * @return Response
      */
     public function delete($id)
     {
@@ -46,6 +50,23 @@ class HomeController extends Controller
         $entityManager->flush();
 
         return new Response('Deleted');
+    }
+
+    /**
+     * @Route("/delete/{idd}", name="remove")
+     * @ParamConverter("delete", options={"id" = "idd"})
+     * @param Products $delete
+     * @return Response
+     */
+    public function remove(Products $delete)
+    {
+        $del = $delete->getCategoryId();
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->remove($del);
+        $entityManager->flush();
+
+        return new Response('Deleted');
+
     }
 
 }
