@@ -17,7 +17,7 @@ class NumberFormatter
         }
 
         //1000 ir daugiau apvalinama sveikųjų tikslumu. Tarp tūkstančių ir šimtų vienas tarpas.
-        if (strpos(abs($number), '.') >= 4 || abs($number) > 999.995) {
+        if (strpos(abs($number), '.') >= 4 || abs($number) >= 999.995) {
             return number_format($number, '0', '', ' ');
         }
 

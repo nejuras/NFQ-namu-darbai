@@ -27,7 +27,7 @@ class DefaultController extends Controller
 //        $formatted = $this->get(NumberFormatter::class)->format($number);
 //        return new Response($number . ' => ' . $formatted);
 
-        $number = '2835779';
+        $number = '999.995';
 
         $formattedEur = $this->get(MoneyFormatter::class)->formatEur($number);
         $formattedUsd = $this->get(MoneyFormatter::class)->formatUsd($number);
