@@ -7,7 +7,7 @@ services:
                 arguments: ["%providers.openweathermap.apikey%"]
 
     nfq_weather.provider.yahoo:
-            class: Nfq\WeatherBundle\YahoopWeatherProvider
+            class: Nfq\WeatherBundle\YahooWeatherProvider
             arguments: ["%nfq_weather.provider.yahoo%"]
 
     nfq_weather.provider.delegating:
