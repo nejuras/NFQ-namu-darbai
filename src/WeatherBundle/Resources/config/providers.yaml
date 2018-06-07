@@ -1,10 +1,15 @@
+parameters:
+    nfq_weather.provider.openweathermap: 0
+    nfq_weather.provider.yahoo:          0
+    nfq_weather.provider.delegating:     0
+
 services:
     _defaults:
-        public: true
+        public: false
 
     nfq_weather.provider.openweathermap:
                 class: Nfq\WeatherBundle\OpenWeatherMapWeatherProvider
-                arguments: ["%providers.openweathermap.apikey%"]
+                arguments: ["%nfq_weather.provider.openweathermap%"]
 
     nfq_weather.provider.yahoo:
             class: Nfq\WeatherBundle\YahooWeatherProvider
